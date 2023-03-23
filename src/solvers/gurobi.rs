@@ -89,7 +89,7 @@ impl SolverTrait for GurobiSolver {
                         Ok(r) => {
                             let mut status = Status::SubOptimal;
                             let result = String::from_utf8(r.stdout).expect("");
-                            if result.contains("Optimal solution found")
+                            if result.contains("Optimal objective")
                             {
                                 status = Status::Optimal;
                             } else if result.contains("infesible") {
